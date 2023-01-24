@@ -1,0 +1,52 @@
+use('iti');
+const ins=db.instructors
+//?a
+// ins.find();
+//?b
+// ins.find({salary:{$gt:4000}},{salary:1,firstName:1})
+//?c
+// ins.find({age:{$gte:25}})
+//?d
+// ins.find({"address.city":"mansoura","address.street":{$in:[10,14]}},{firstName:1,address:1,salary:1})
+
+//?e
+//! empty set
+// ins.find({courses:{$all:["js","jquery"]}})
+
+//?f
+// ins.find({firstName:{$exists:true}},{firstName:1,courses:1}).forEach((doc)=>
+// {
+//     print(`${doc.firstName} ${doc.courses.length}`)
+
+// })
+//?g
+// ins.find({firstName:{$exists:true},lastName:{$exists:true},age:{$exists:true}}).sort({firstName:1,lastName:-1}).forEach((doc)=>{
+//     console.log(`Full Name: ${doc.firstName} ${doc.lastName}, Age: ${doc.age}`)
+// })
+
+
+//?h
+// ins.deleteOne({firstName:"ebtesam",courses:{$size:5}})
+
+//?i
+// ins.updateMany({},{$set:{active:true}})
+//?j
+// ins.updateOne({firstName:"mazen",lastName:"mohammed",courses:"EF"},{$set:{"courses.$":"jquery"}})
+
+
+//?k
+// ins.updateOne({firstName:"noha",lastName:"hesham"},{$addToSet:{courses:"jquery"}})
+//?l
+// ins.updateOne({firstName:"noha",lastName:"hesham"},{$unset:{courses:""}})
+//?m
+// ins.updateMany({courses:{$size:3}},{$inc:{salary:-5000}})
+//?n
+// ins.updateMany({},{$rename:{address:"fullAddress"}})
+
+//?o
+
+// ins.updateOne({firstName:"noha",lastName:"hesham"},{$set:{"fullAddress.street":20}})
+// ins.updateOne({firstName:"noha",lastName:"hesham"},{$unset:{address:""}})
+arr=db.instructors.find({salary:{$exists:true}},{salary:1})
+console.log(arr.constructor.name)
+
